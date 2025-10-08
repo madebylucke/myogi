@@ -1,10 +1,24 @@
 import * as React from "react";
 import type { SvgProps } from "react-native-svg";
 import Svg, { Circle, Path } from "react-native-svg";
-const SvgTimer = (props: SvgProps) => (
+
+interface TimerIconProps extends SvgProps {
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const SvgTimer = ({
+  width = 24,
+  height = 24,
+  color = "currentColor",
+  ...props
+}: TimerIconProps) => (
   <Svg
     fill="none"
-    stroke="currentColor"
+    stroke={color}
+    width={width}
+    height={height}
     strokeLinecap="round"
     strokeLinejoin="round"
     viewBox="0 0 24 24"

@@ -1,31 +1,33 @@
+// components/icons/SvgChevronRight.tsx
 import * as React from "react";
 import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
 
-interface ChartIconProps extends SvgProps {
+interface ChevronRightIconProps extends SvgProps {
   width?: number;
   height?: number;
   color?: string;
 }
 
-const SvgChart = ({
+const SvgChevronRight = ({
   width = 24,
   height = 24,
   color = "currentColor",
   ...props
-}: ChartIconProps) => (
+}: ChevronRightIconProps) => (
   <Svg
-    fill="none"
-    stroke={color}
     width={width}
     height={height}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
     strokeLinecap="round"
     strokeLinejoin="round"
-    viewBox="0 0 24 24"
     strokeWidth={2}
     {...props}
   >
-    <Path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3" />
+    <Path d="m9 18 6-6-6-6" />
   </Svg>
 );
-export default SvgChart;
+
+export default SvgChevronRight;

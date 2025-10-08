@@ -1,10 +1,24 @@
 import * as React from "react";
 import type { SvgProps } from "react-native-svg";
 import Svg, { Path, Rect } from "react-native-svg";
-const SvgCalendar = (props: SvgProps) => (
+
+interface CalendarIconProps extends SvgProps {
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const SvgCalendar = ({
+  width = 24,
+  height = 24,
+  color = "currentColor",
+  ...props
+}: CalendarIconProps) => (
   <Svg
     fill="none"
-    stroke="currentColor"
+    stroke={color}
+    width={width}
+    height={height}
     strokeLinecap="round"
     strokeLinejoin="round"
     viewBox="0 0 24 24"
