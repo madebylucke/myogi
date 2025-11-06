@@ -33,17 +33,15 @@ export default function TabLayout() {
             overflow: "hidden",
             marginHorizontal: 6,
           },
-
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
           tabBarActiveBackgroundColor:
             Colors[colorScheme ?? "light"].tabIconSelectedBackground,
           tabBarInactiveTintColor: "#bbbbbbff",
-
-          animation: "shift",
+          /* animation: "shift",
           transitionSpec: {
             animation: "timing",
             config: { duration: 100 },
-          },
+          },*/
         }}
       >
         <Tabs.Screen

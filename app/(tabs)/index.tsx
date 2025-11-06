@@ -1,8 +1,11 @@
 import SvgCalendar from "@/components/icons/SvgCalendar";
 import SvgChevronRight from "@/components/icons/SvgChevronRight";
+import { width } from "@/constants/ResponsiveSizes";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function WorkoutScreen() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -12,7 +15,7 @@ export default function WorkoutScreen() {
         </Pressable>
       </View>
       <View style={styles.emptyWorkoutWrapper}>
-        <Pressable style={styles.emptyWorkoutButton}>
+        <Pressable style={styles.emptyWorkoutButton} onPress={() => router.push('/CreateWorkoutScreen')}>
           <Text style={styles.emptyWorkoutText}>Empty Workout</Text>
         </Pressable>
       </View>
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   emptyWorkoutWrapper: {
-    paddingHorizontal: 12,
+    paddingHorizontal: width(6),
   },
   emptyWorkoutButton: {
     backgroundColor: "#e6e9ecff",
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
   },
 
   plannedWorkoutsContainer: {
-    paddingHorizontal: 12,
+    paddingHorizontal: width(6),
     marginTop: 18,
   },
   plannedWorkoutsContainerTitle: {
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
   },
 
   templatesContainer: {
-    paddingHorizontal: 12,
+    paddingHorizontal: width(6),
     marginTop: 18,
   },
   templatesContainerTitle: {

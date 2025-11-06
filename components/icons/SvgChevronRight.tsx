@@ -7,12 +7,14 @@ interface ChevronRightIconProps extends SvgProps {
   width?: number;
   height?: number;
   color?: string;
+  strokeWidth?: number;
 }
 
 const SvgChevronRight = ({
   width = 24,
   height = 24,
   color = "currentColor",
+  strokeWidth = 2,
   ...props
 }: ChevronRightIconProps) => (
   <Svg
@@ -23,7 +25,7 @@ const SvgChevronRight = ({
     stroke={color}
     strokeLinecap="round"
     strokeLinejoin="round"
-    strokeWidth={2}
+    strokeWidth={strokeWidth}
     {...props}
   >
     <Path d="m9 18 6-6-6-6" />
