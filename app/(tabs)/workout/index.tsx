@@ -1,8 +1,8 @@
 import SvgCalendar from "@/components/icons/SvgCalendar";
 import SvgChevronRight from "@/components/icons/SvgChevronRight";
 import { width } from "@/constants/ResponsiveSizes";
-import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function WorkoutScreen() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function WorkoutScreen() {
         </Pressable>
       </View>
       <View style={styles.emptyWorkoutWrapper}>
-        <Pressable style={styles.emptyWorkoutButton} onPress={() => router.push('/CreateWorkoutScreen')}>
+        <Pressable style={styles.emptyWorkoutButton}>
           <Text style={styles.emptyWorkoutText}>Empty Workout</Text>
         </Pressable>
       </View>
@@ -27,6 +27,7 @@ export default function WorkoutScreen() {
               styles.plannedWorkout,
               { borderBottomRightRadius: 2, borderBottomLeftRadius: 2 },
             ]}
+            onPress={() => router.push("/(tabs)/workout/preview")}
           >
             <View style={styles.plannedWorkoutInfo}>
               <Text style={styles.plannedWorkoutTitle}>Pull Day</Text>
@@ -41,6 +42,7 @@ export default function WorkoutScreen() {
               styles.plannedWorkout,
               { borderTopRightRadius: 2, borderTopLeftRadius: 2 },
             ]}
+            onPress={() => router.push("/(tabs)/workout/preview")}
           >
             <View style={styles.plannedWorkoutInfo}>
               <Text style={styles.plannedWorkoutTitle}>Push Day</Text>
