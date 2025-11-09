@@ -10,7 +10,9 @@ export default function WorkoutStackLayout() {
       <Stack.Screen name="index" options={{ title: "Workout" }} />
       <Stack.Screen
         name="preview"
-        options={{ title: "Workout Preview", headerShown: true }}
+        options={{
+          title: "Workout Preview",
+        }}
       />
     </Stack>
   );

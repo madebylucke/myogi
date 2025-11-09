@@ -1,9 +1,11 @@
+import { Header } from "@/components/ui/Header";
 import { fontSize, height, width } from "@/constants/ResponsiveSizes";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function PreviewScreen() {
   return (
     <View style={styles.container}>
+      <Header title="Workout" />
       <Text style={styles.title}>Workout</Text>
       <View style={styles.separator} />
     </View>

@@ -1,5 +1,7 @@
 import SvgCalendar from "@/components/icons/SvgCalendar";
 import SvgChevronRight from "@/components/icons/SvgChevronRight";
+import { Button } from "@/components/ui/Button";
+import { Header } from "@/components/ui/Header";
 import { width } from "@/constants/ResponsiveSizes";
 import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
@@ -8,16 +10,12 @@ export default function WorkoutScreen() {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Workout</Text>
-        <Pressable>
-          <SvgCalendar width={32} height={32}></SvgCalendar>
-        </Pressable>
-      </View>
+      <Header
+        title="Workout"
+        rightAction={<SvgCalendar width={32} height={32} />}
+      />
       <View style={styles.emptyWorkoutWrapper}>
-        <Pressable style={styles.emptyWorkoutButton}>
-          <Text style={styles.emptyWorkoutText}>Empty Workout</Text>
-        </Pressable>
+        <Button title="Empty Workout" onPress={() => {}} variant="secondary" />
       </View>
       <View style={styles.plannedWorkoutsContainer}>
         <Text style={styles.plannedWorkoutsContainerTitle}>Today</Text>
@@ -102,19 +100,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    marginBottom: 12,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "#000000",
-  },
   separator: {
     marginVertical: 30,
     height: 1,
@@ -122,15 +107,6 @@ const styles = StyleSheet.create({
   },
   emptyWorkoutWrapper: {
     paddingHorizontal: width(6),
-  },
-  emptyWorkoutButton: {
-    backgroundColor: "#e6e9ecff",
-    alignItems: "center",
-    borderRadius: 8,
-    paddingVertical: 10,
-  },
-  emptyWorkoutText: {
-    fontSize: 20,
   },
 
   plannedWorkoutsContainer: {

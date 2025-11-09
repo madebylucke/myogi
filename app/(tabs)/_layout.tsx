@@ -2,7 +2,7 @@ import { useColorScheme } from "@/components/hooks/useColorScheme";
 import SvgCalendar from "@/components/icons/SvgCalendar";
 import SvgChart from "@/components/icons/SvgChart";
 import SvgTimer from "@/components/icons/SvgTimer";
-import Colors from "@/constants/Colors";
+import { Colors } from "@/constants";
 import { Tabs } from "expo-router";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -36,8 +36,12 @@ export default function TabLayout() {
           tabBarActiveBackgroundColor:
             Colors[colorScheme ?? "light"].tabIconSelectedBackground,
           tabBarInactiveTintColor: "#bbbbbbff",
+
+          popToTopOnBlur: true,
         }}
       >
+        <Tabs.Screen redirect name="index" />
+
         <Tabs.Screen
           name="workout"
           options={{
