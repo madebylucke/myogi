@@ -99,6 +99,7 @@ export default function WorkoutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    gap: 12
   },
   separator: {
     marginVertical: 30,

@@ -1,39 +1,53 @@
-// components/ui/IconButton.tsx
-import { Sizes } from "@/constants";
-import { Ionicons } from "@expo/vector-icons";
-import { Pressable } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
 interface IconButtonProps {
-  icon: keyof typeof Ionicons.glyphMap;
-  onPress: () => void;
+  iconName: keyof typeof Ionicons.glyphMap;
   size?: number;
   color?: string;
+  onPress: () => void;
+  style?: ViewStyle;
   disabled?: boolean;
+  backgroundColor?: string;
 }
 
-export function IconButton({
-  icon,
-  onPress,
+const IconButton: React.FC<IconButtonProps> = ({
+  iconName,
   size = 24,
-  color,
+  color = '#000',
+  onPress,
+  style,
   disabled = false,
-}: IconButtonProps) {
-  const iconColor = color;
+  backgroundColor = 'transparent',
+}) => {
   return (
-    <Pressable
-      style={({ pressed }) => [
-        {
-          padding: 8,
-          borderRadius: Sizes.borderRadius.round,
-          justifyContent: "center",
-          alignItems: "center",
-          opacity: pressed ? 0.5 : disabled ? 0.3 : 1,
-        },
-      ]}
+    <TouchableOpacity
       onPress={onPress}
       disabled={disabled}
+      style={[
+        styles.button,
+        { backgroundColor },
+        disabled && styles.disabled,
+        style,
+      ]}
+      activeOpacity={0.7}
     >
-      <Ionicons name={icon} size={size} color={iconColor} />
-    </Pressable>
+      <Ionicons name={iconName} size={size} color={color} />
+    </TouchableOpacity>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  button: {
+    padding: 8,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+});
+
+export default IconButton;
